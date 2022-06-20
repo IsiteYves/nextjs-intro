@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { useState } from "react";
 import { server } from "../config";
 
-const newuser = ({ initialContacts }) => {
+const Newuser = ({ initialContacts }) => {
   const [contacts, setContacts] = useState(initialContacts);
   const [userInfo, setUserInfo] = useState({
     firstName: "",
@@ -141,4 +141,4 @@ async function saveContact(contact) {
   return await response.json();
 }
 
-export default newuser;
+export default Newuser;
