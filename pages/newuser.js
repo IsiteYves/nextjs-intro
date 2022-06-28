@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { useState } from "react";
-import { server } from "../config";
+import { server } from "../config/index";
 
 const Newuser = ({ initialContacts }) => {
   const [contacts, setContacts] = useState(initialContacts);
@@ -27,7 +27,6 @@ const Newuser = ({ initialContacts }) => {
           try {
             await saveContact(userInfo);
             setContacts([...contacts, userInfo]);
-            // e.target.reset();
           } catch (err) {
             console.log(err);
           }
