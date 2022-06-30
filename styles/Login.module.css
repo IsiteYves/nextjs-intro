@@ -1,0 +1,12 @@
+.loginForm {
+    border: 1px solid #808080;
+}
+
+.loginForm input:not([type=submit]) {
+    display: flex !important;
+    padding: 2px 8px;
+    border: 1px solid blue;
+}
+.loginForm>div {
+    margin-top: 2rem;
+}
