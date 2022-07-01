@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-export default async (req: NextRequest, res: NextResponse) => {
+export default async (req: NextRequest, res) => {
   if (req?.method == "POST") {
     const contactData = JSON.parse(req?.body.toString());
 
