@@ -2,7 +2,8 @@ import { PrismaClient } from "@prisma/client";
 import { useState } from "react";
 import { server } from "../config/index";
 
-const Newuser = ({ initialContacts }) => {
+const Newuser = () => {
+  const initialContacts = [];
   const [contacts, setContacts] = useState(initialContacts);
   const [userInfo, setUserInfo] = useState({
     firstName: "",
@@ -119,15 +120,15 @@ const Newuser = ({ initialContacts }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const prisma = new PrismaClient();
-  const contacts = await prisma.Contact.findMany();
-  return {
-    props: {
-      initialContacts: contacts,
-    },
-  };
-}
+// export async function getServerSideProps() {
+//   const prisma = new PrismaClient();
+//   const contacts = await prisma.Contact.findMany();
+//   return {
+//     props: {
+//       initialContacts: contacts,
+//     },
+//   };
+// }
 
 async function saveContact(contact) {
   const response = await fetch(`${server}/api/contacts`, {
