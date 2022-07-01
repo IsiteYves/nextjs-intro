@@ -17,7 +17,7 @@ export default async (req: NextRequest, res: NextResponse) => {
     const prisma = new PrismaClient();
     const contacts = await prisma?.contact.findMany();
     res.statusCode = 200;
-    return res.json(contacts);
+    return res.send(contacts);
   }
   res.statusCode = 405;
   return res.end({ message: "Method not allowed" });
