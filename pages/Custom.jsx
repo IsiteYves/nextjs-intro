@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import { server } from "../config";
 
-const Custom = () => {
-  const usersList = [];
+const Custom = ({ usersList }) => {
   const [counter, setCounter] = useState(0);
   useEffect(() => {
     const int = setInterval(() => {
@@ -51,16 +50,16 @@ const Custom = () => {
   );
 };
 
-export default Custom;
+export default custom;
 
-// export const getServerSideProps = async () => {
-//   const contacts = await fetch("http://localhost:3000/api/contacts", {
-//     method: "GET",
-//   });
-//   const usersList = await contacts.json();
-//   return {
-//     props: {
-//       usersList,
-//     },
-//   };
-// };
+export const getServerSideProps = async () => {
+  const contacts = await fetch("http://localhost:3000/api/contacts", {
+    method: "GET",
+  });
+  const usersList = await contacts.json();
+  return {
+    props: {
+      usersList,
+    },
+  };
+};
