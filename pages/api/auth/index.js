@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from "next/server";
 import { jwt_secret } from "../../../config/index";
 import jwt from "jsonwebtoken";
 
