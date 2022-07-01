@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/contacts/index.js", "pages/api/auth/index.js"  ],
+, "pages/api/contacts/index.js", "pages/api/auth/index.js", "pages/Custom.jxx"  ],
   "exclude": [
     "node_modules"
   ]
