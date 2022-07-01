@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { jwt_secret } from "../../../config/index";
 import jwt from "jsonwebtoken";
 
-export default function (req: NextRequest, res) {
+export default function (req, res) {
   const reqbody = JSON.parse(req?.body.toString());
   if (!reqbody?.email || !reqbody?.password) {
     return res.status(400).send({
