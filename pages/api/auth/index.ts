@@ -3,7 +3,8 @@ import { jwt_secret } from "../../../config/index";
 import jwt from "jsonwebtoken";
 
 export default function (req: NextRequest, res: NextResponse) {
-  const reqbody = JSON.parse(req?.body);
+  const bodyCpy = req?.body;
+  const reqbody = JSON.parse(bodyCpy);
   if (!reqbody?.email || !reqbody?.password)
     return res.status(400).send({
       message: "Please provide valid data with 'email' and 'password",

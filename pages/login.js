@@ -15,7 +15,8 @@ const Login = () => {
       body: JSON.stringify(loginInfo),
     });
     const res = await req.json();
-    console.log(res);
+    if (res.token) alert("You are logged in!");
+    else alert("Invalid credentials!");
   };
   return (
     <form
