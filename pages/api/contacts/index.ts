@@ -1,11 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
 export default async (req: NextRequest, res: NextResponse) => {
   if (req?.method == "POST") {
-    const contactData = JSON.parse(req.body);
+    const contactData = JSON.parse(req?.body.toString());
 
     const savedContact = await prisma?.contact.create({
       data: contactData,
@@ -16,7 +16,9 @@ export default async (req: NextRequest, res: NextResponse) => {
   if (req.method == "GET") {
     const prisma = new PrismaClient();
     const contacts = await prisma?.contact.findMany();
-    return res.status(200).json(contacts);
+    res.statusCode = 200;
+    return res.json(contacts);
   }
-  return res.status(405).end({ message: "Method not allowed" });
+  res.statusCode = 405;
+  return res.end({ message: "Method not allowed" });
 };
