@@ -11,7 +11,7 @@ export default async (req: NextRequest, res: NextResponse) => {
       data: contactData,
     });
 
-    return res.json(savedContact);
+    return res.send(savedContact);
   }
   if (req.method == "GET") {
     const prisma = new PrismaClient();
